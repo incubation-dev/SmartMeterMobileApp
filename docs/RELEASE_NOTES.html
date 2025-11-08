@@ -1,0 +1,293 @@
+    1	<!DOCTYPE html>
+     2	<html lang="ja">
+     3	<head>
+     4	    <meta charset="UTF-8">
+     5	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     6	    <title>リリースノート v1.0.0 - SmartMeter Mobile App</title>
+     7	    <link rel="stylesheet" href="style.css">
+     8	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     9	    <style>
+    10	        .release-header {
+    11	            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    12	            color: white;
+    13	            padding: 3rem 0;
+    14	            text-align: center;
+    15	        }
+    16	        .release-content {
+    17	            max-width: 900px;
+    18	            margin: 3rem auto;
+    19	            padding: 0 20px;
+    20	        }
+    21	        .release-section {
+    22	            margin-bottom: 3rem;
+    23	            background: white;
+    24	            padding: 2rem;
+    25	            border-radius: 12px;
+    26	            box-shadow: var(--shadow);
+    27	        }
+    28	        .release-section h2 {
+    29	            color: var(--primary-color);
+    30	            margin-bottom: 1.5rem;
+    31	            border-bottom: 2px solid var(--border-color);
+    32	            padding-bottom: 0.5rem;
+    33	        }
+    34	        .release-section h3 {
+    35	            color: var(--primary-dark);
+    36	            margin-top: 1.5rem;
+    37	            margin-bottom: 1rem;
+    38	        }
+    39	        .feature-list {
+    40	            list-style: none;
+    41	            padding-left: 0;
+    42	        }
+    43	        .feature-list li {
+    44	            padding: 0.75rem 0;
+    45	            padding-left: 2rem;
+    46	            position: relative;
+    47	            border-bottom: 1px solid var(--border-color);
+    48	        }
+    49	        .feature-list li:last-child {
+    50	            border-bottom: none;
+    51	        }
+    52	        .feature-list li::before {
+    53	            content: '✓';
+    54	            position: absolute;
+    55	            left: 0.5rem;
+    56	            color: var(--primary-color);
+    57	            font-weight: bold;
+    58	            font-size: 1.2rem;
+    59	        }
+    60	        .back-link {
+    61	            display: inline-flex;
+    62	            align-items: center;
+    63	            gap: 0.5rem;
+    64	            color: var(--primary-color);
+    65	            text-decoration: none;
+    66	            margin-bottom: 2rem;
+    67	            font-weight: 600;
+    68	        }
+    69	        .back-link:hover {
+    70	            color: var(--primary-dark);
+    71	        }
+    72	    </style>
+    73	</head>
+    74	<body>
+    75	    <div class="release-header">
+    76	        <div class="container">
+    77	            <h1><i class="fas fa-file-alt"></i> リリースノート</h1>
+    78	            <p style="font-size: 1.5rem; margin-top: 1rem;">Version 1.0.0 (2025-01-07)</p>
+    79	            <p style="opacity: 0.9;">Phase 1: Android版</p>
+    80	        </div>
+    81	    </div>
+    82	
+    83	    <div class="release-content">
+    84	        <a href="index.html" class="back-link">
+    85	            <i class="fas fa-arrow-left"></i> デモサイトに戻る
+    86	        </a>
+    87	
+    88	        <div class="release-section">
+    89	            <h2><i class="fas fa-rocket"></i> 初回リリース</h2>
+    90	            <p>SmartMeterMobileApp（スマートメーターモバイルアプリ）のAndroid版Phase 1を正式リリースします。</p>
+    91	        </div>
+    92	
+    93	        <div class="release-section">
+    94	            <h2><i class="fas fa-mobile-alt"></i> 対応環境</h2>
+    95	            <h3>Android端末</h3>
+    96	            <ul class="feature-list">
+    97	                <li><strong>OS:</strong> Android 5.0 (Lollipop) 以上</li>
+    98	                <li><strong>推奨:</strong> Android 13.0 以上</li>
+    99	                <li><strong>API Level:</strong> 21以上</li>
+   100	                <li><strong>アーキテクチャ:</strong> ARM64-v8a, ARMv7, x86, x86_64</li>
+   101	            </ul>
+   102	
+   103	            <h3>必要なハードウェア</h3>
+   104	            <ul class="feature-list">
+   105	                <li><strong>Bluetooth:</strong> Bluetooth 2.0以上（SPP対応）</li>
+   106	                <li><strong>TP-BTアダプター:</strong> TP-BT Bluetooth SPPアダプター</li>
+   107	                <li><strong>メーター:</strong> CEM6シリーズ電力メーター（IR01/IR02/IR06/IR91対応）</li>
+   108	            </ul>
+   109	
+   110	            <h3>必要な権限</h3>
+   111	            <ul class="feature-list">
+   112	                <li>Bluetooth接続・管理</li>
+   113	                <li>位置情報（Bluetoothスキャンに必要）</li>
+   114	                <li>ストレージ（Excelファイル保存）</li>
+   115	            </ul>
+   116	        </div>
+   117	
+   118	        <div class="release-section">
+   119	            <h2><i class="fas fa-star"></i> 実装済み機能</h2>
+   120	            
+   121	            <h3>1. メーター情報取得機能</h3>
+   122	            <p><strong>概要:</strong> Bluetoothで接続したスマートメーターから各種情報を取得</p>
+   123	            <ul class="feature-list">
+   124	                <li>基本情報（IR01テレグラム）: メーターID、製造番号、製造年月、動作モード等</li>
+   125	                <li>計測情報（IR02テレグラム）: 正方向/逆方向有効電力量（現在値、前回値、前々回値）</li>
+   126	                <li>瞬時値（IR06テレグラム）: 瞬時電力、瞬時電流</li>
+   127	                <li>取得データの画面表示とExcel出力</li>
+   128	            </ul>
+   129	
+   130	            <h3>2. 誤結線判定機能</h3>
+   131	            <p><strong>概要:</strong> メーターの結線状態を判定し、42パターンの誤結線を検出</p>
+   132	            <ul class="feature-list">
+   133	                <li>判定パラメータ入力（定格電圧、定格電流、しきい値等）</li>
+   134	                <li>IR91テレグラムでの現在値取得（電圧、電流、進み・遅れ角度）</li>
+   135	                <li>42パターンの自動判定（電圧系、電流系、混合）</li>
+   136	                <li>判定結果の詳細表示と推奨対処法</li>
+   137	            </ul>
+   138	
+   139	            <h3>3. 計測試験機能</h3>
+   140	            <p><strong>概要:</strong> メーターの計測値を時系列で記録し、誤差を計算</p>
+   141	            <ul class="feature-list">
+   142	                <li>自動測定モード（タイマー設定: 10秒-60分）</li>
+   143	                <li>手動測定モード</li>
+   144	                <li>最大3回までの測定記録</li>
+   145	                <li>繰り越し対応の差分計算（8桁）</li>
+   146	                <li>経過時間のリアルタイム表示</li>
+   147	            </ul>
+   148	
+   149	            <h3>4. Excelエクスポート機能</h3>
+   150	            <p><strong>概要:</strong> 取得したデータを3種類のExcel形式で出力</p>
+   151	            <ul class="feature-list">
+   152	                <li><strong>Format A（基本情報）:</strong> メーターID、計測日、電力量、備考</li>
+   153	                <li><strong>Format B（詳細情報）:</strong> Format A + 測定者名、場所、動作モード等</li>
+   154	                <li><strong>Format C（検査記録）:</strong> Format B + 検査番号、検査者、承認者、合否判定</li>
+   155	                <li>重複チェック、既存ファイルへの追記対応</li>
+   156	            </ul>
+   157	        </div>
+   158	
+   159	        <div class="release-section">
+   160	            <h2><i class="fas fa-code"></i> 技術スタック</h2>
+   161	            <ul class="feature-list">
+   162	                <li><strong>React Native:</strong> 0.73.2 - クロスプラットフォームフレームワーク</li>
+   163	                <li><strong>TypeScript:</strong> 5.3.3 - 型安全な開発</li>
+   164	                <li><strong>React Navigation:</strong> 6.1.9 - 画面遷移管理</li>
+   165	                <li><strong>react-native-bluetooth-classic:</strong> 1.60.0-rc.10 - Bluetooth SPP通信</li>
+   166	                <li><strong>xlsx (SheetJS):</strong> 0.18.5 - Excel入出力</li>
+   167	                <li><strong>react-native-fs:</strong> 2.20.0 - ファイルシステム操作</li>
+   168	            </ul>
+   169	        </div>
+   170	
+   171	        <div class="release-section">
+   172	            <h2><i class="fas fa-chart-bar"></i> プロジェクト統計</h2>
+   173	            <ul class="feature-list">
+   174	                <li><strong>総ファイル数:</strong> 52</li>
+   175	                <li><strong>総行数:</strong> 約26,000行</li>
+   176	                <li><strong>TypeScript:</strong> 約15,000行</li>
+   177	                <li><strong>ドキュメント:</strong> 約10,000行</li>
+   178	                <li><strong>Phase 1実装完了度:</strong> 100%</li>
+   179	                <li><strong>テストケース:</strong> 70項目作成済み</li>
+   180	            </ul>
+   181	        </div>
+   182	
+   183	        <div class="release-section">
+   184	            <h2><i class="fas fa-exclamation-circle"></i> 既知の問題</h2>
+   185	            <p>現時点で既知の致命的な問題はありません。</p>
+   186	            
+   187	            <h3>制限事項</h3>
+   188	            <ul class="feature-list">
+   189	                <li><strong>Bluetooth接続:</strong> SPP（Serial Port Profile）のみ対応。BLEは非対応</li>
+   190	                <li><strong>メーター互換性:</strong> CEM6シリーズのみ動作確認済み</li>
+   191	                <li><strong>Excel形式:</strong> .xlsx (Office Open XML) のみ対応。旧形式 .xls は非対応</li>
+   192	                <li><strong>iOS版:</strong> Phase 2で対応予定（WebSocketリレーサーバー経由）</li>
+   193	            </ul>
+   194	        </div>
+   195	
+   196	        <div class="release-section">
+   197	            <h2><i class="fas fa-vial"></i> テスト状況</h2>
+   198	            <p>詳細は <a href="https://github.com/YOUR_ORG/SmartMeterMobileApp/blob/main/TESTING_GUIDE.md" style="color: var(--primary-color);">TESTING_GUIDE.md</a> を参照</p>
+   199	            
+   200	            <h3>テスト範囲</h3>
+   201	            <ul class="feature-list">
+   202	                <li>レベル1: Bluetooth接続（10ケース）</li>
+   203	                <li>レベル2: テレグラム通信（10ケース）</li>
+   204	                <li>レベル3: メーター情報取得（10ケース）</li>
+   205	                <li>レベル4: 誤結線判定（12ケース）</li>
+   206	                <li>レベル5: 計測試験（10ケース）</li>
+   207	                <li>レベル6: Excelエクスポート（10ケース）</li>
+   208	                <li>レベル7: UI/UX（5ケース）</li>
+   209	                <li>レベル8: エラーハンドリング（3ケース）</li>
+   210	            </ul>
+   211	            <p><strong>合計:</strong> 70テストケース</p>
+   212	
+   213	            <h3>テスト環境</h3>
+   214	            <ul class="feature-list">
+   215	                <li>Android Emulator（Pixel 5, API 33）</li>
+   216	                <li>実機テスト：予定中（3-5日間）</li>
+   217	            </ul>
+   218	        </div>
+   219	
+   220	        <div class="release-section">
+   221	            <h2><i class="fas fa-forward"></i> 今後の予定</h2>
+   222	            
+   223	            <h3>Phase 1 完了に向けて（3-5日）</h3>
+   224	            <ul class="feature-list">
+   225	                <li>Android実機テスト</li>
+   226	                <li>フィードバック収集</li>
+   227	                <li>バグ修正・改善</li>
+   228	                <li>Release APK（署名付き）で正式配布</li>
+   229	            </ul>
+   230	
+   231	            <h3>Phase 2: iOS版（+2ヶ月）</h3>
+   232	            <ul class="feature-list">
+   233	                <li>WebSocketリレーサーバー実装</li>
+   234	                <li>iOSネイティブアプリ実装</li>
+   235	                <li>クロスプラットフォームコードの共通化</li>
+   236	                <li>iOS実機テスト</li>
+   237	            </ul>
+   238	
+   239	            <h3>改善予定</h3>
+   240	            <ul class="feature-list">
+   241	                <li>Bluetoothデバイス一覧表示の改善</li>
+   242	                <li>エラーメッセージの多言語対応</li>
+   243	                <li>オフラインモード対応</li>
+   244	                <li>クラウドバックアップ機能</li>
+   245	            </ul>
+   246	        </div>
+   247	
+   248	        <div class="release-section">
+   249	            <h2><i class="fas fa-phone"></i> サポート・フィードバック</h2>
+   250	            <h3>問い合わせ先</h3>
+   251	            <p><strong>大崎電気工業株式会社 インキュベーション室</strong></p>
+   252	            <ul class="feature-list">
+   253	                <li>担当: 梅澤優一（Ume）</li>
+   254	                <li>プロジェクト: SmartMeterMobileApp</li>
+   255	            </ul>
+   256	
+   257	            <h3>バグ報告</h3>
+   258	            <p>以下の情報を含めて報告してください：</p>
+   259	            <ul class="feature-list">
+   260	                <li>Android OSバージョン</li>
+   261	                <li>端末モデル</li>
+   262	                <li>再現手順</li>
+   263	                <li>エラーメッセージ（スクリーンショット推奨）</li>
+   264	                <li>期待される動作</li>
+   265	            </ul>
+   266	        </div>
+   267	
+   268	        <div class="release-section">
+   269	            <h2><i class="fas fa-copyright"></i> ライセンス・著作権</h2>
+   270	            <p><strong>Copyright © 2025 大崎電気工業株式会社</strong><br>All rights reserved.</p>
+   271	            <p>このアプリケーションは大崎電気工業株式会社の内部使用を目的としています。<br>無断での再配布、改変、商用利用を禁じます。</p>
+   272	        </div>
+   273	
+   274	        <div style="text-align: center; margin-top: 3rem;">
+   275	            <a href="index.html" class="btn btn-primary">
+   276	                <i class="fas fa-arrow-left"></i> デモサイトに戻る
+   277	            </a>
+   278	            <a href="index.html#download" class="btn btn-secondary">
+   279	                <i class="fas fa-download"></i> APKをダウンロード
+   280	            </a>
+   281	        </div>
+   282	    </div>
+   283	
+   284	    <footer class="footer">
+   285	        <div class="container">
+   286	            <div class="footer-bottom">
+   287	                <p>&copy; 2025 大崎電気工業株式会社 All rights reserved.</p>
+   288	            </div>
+   289	        </div>
+   290	    </footer>
+   291	</body>
+   292	</html>
+   293	
