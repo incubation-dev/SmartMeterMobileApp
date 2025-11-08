@@ -1,0 +1,234 @@
+     1	<!DOCTYPE html>
+     2	<html lang="ja">
+     3	<head>
+     4	    <meta charset="UTF-8">
+     5	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     6	    <meta name="description" content="CEM6誤結線検出モバイルアプリ - デモページ">
+     7	    <title>SmartMeter Mobile App - デモ</title>
+     8	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     9	    <style>
+    10	        :root {
+    11	            --primary-color: #aa0000;
+    12	            --primary-dark: #880000;
+    13	            --primary-light: #cc0000;
+    14	            --text-color: #333333;
+    15	            --text-light: #666666;
+    16	            --bg-color: #ffffff;
+    17	            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    18	        }
+    19	        
+    20	        * {
+    21	            margin: 0;
+    22	            padding: 0;
+    23	            box-sizing: border-box;
+    24	        }
+    25	        
+    26	        body {
+    27	            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    28	            line-height: 1.6;
+    29	            color: var(--text-color);
+    30	            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    31	        }
+    32	        
+    33	        .container {
+    34	            max-width: 1000px;
+    35	            margin: 0 auto;
+    36	            padding: 2rem;
+    37	        }
+    38	        
+    39	        .header {
+    40	            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    41	            color: white;
+    42	            padding: 3rem 2rem;
+    43	            text-align: center;
+    44	            box-shadow: var(--shadow);
+    45	            margin-bottom: 3rem;
+    46	        }
+    47	        
+    48	        .header h1 {
+    49	            font-size: 2.5rem;
+    50	            margin-bottom: 1rem;
+    51	            display: flex;
+    52	            align-items: center;
+    53	            justify-content: center;
+    54	            gap: 1rem;
+    55	        }
+    56	        
+    57	        .header h1 i {
+    58	            font-size: 3rem;
+    59	        }
+    60	        
+    61	        .header p {
+    62	            font-size: 1.2rem;
+    63	            opacity: 0.95;
+    64	        }
+    65	        
+    66	        .success-message {
+    67	            background: white;
+    68	            padding: 2rem;
+    69	            border-radius: 12px;
+    70	            box-shadow: var(--shadow);
+    71	            text-align: center;
+    72	            margin-bottom: 2rem;
+    73	            border-left: 5px solid #28a745;
+    74	        }
+    75	        
+    76	        .success-message h2 {
+    77	            color: #28a745;
+    78	            font-size: 2rem;
+    79	            margin-bottom: 1rem;
+    80	        }
+    81	        
+    82	        .success-message p {
+    83	            color: var(--text-light);
+    84	            font-size: 1.1rem;
+    85	        }
+    86	        
+    87	        .feature-box {
+    88	            background: white;
+    89	            padding: 2rem;
+    90	            border-radius: 12px;
+    91	            box-shadow: var(--shadow);
+    92	            margin-bottom: 2rem;
+    93	        }
+    94	        
+    95	        .feature-box h3 {
+    96	            color: var(--primary-color);
+    97	            font-size: 1.5rem;
+    98	            margin-bottom: 1rem;
+    99	            display: flex;
+   100	            align-items: center;
+   101	            gap: 0.5rem;
+   102	        }
+   103	        
+   104	        .feature-box ul {
+   105	            list-style: none;
+   106	            padding: 0;
+   107	        }
+   108	        
+   109	        .feature-box li {
+   110	            padding: 0.5rem 0;
+   111	            padding-left: 2rem;
+   112	            position: relative;
+   113	            color: var(--text-color);
+   114	        }
+   115	        
+   116	        .feature-box li::before {
+   117	            content: '✓';
+   118	            position: absolute;
+   119	            left: 0;
+   120	            color: var(--primary-color);
+   121	            font-weight: bold;
+   122	            font-size: 1.2rem;
+   123	        }
+   124	        
+   125	        .btn {
+   126	            display: inline-block;
+   127	            padding: 1rem 2rem;
+   128	            background: var(--primary-color);
+   129	            color: white;
+   130	            text-decoration: none;
+   131	            border-radius: 8px;
+   132	            font-weight: 600;
+   133	            transition: all 0.3s ease;
+   134	            margin: 0.5rem;
+   135	        }
+   136	        
+   137	        .btn:hover {
+   138	            background: var(--primary-dark);
+   139	            transform: translateY(-2px);
+   140	            box-shadow: 0 4px 12px rgba(170, 0, 0, 0.3);
+   141	        }
+   142	        
+   143	        .btn-secondary {
+   144	            background: white;
+   145	            color: var(--primary-color);
+   146	            border: 2px solid var(--primary-color);
+   147	        }
+   148	        
+   149	        .btn-secondary:hover {
+   150	            background: var(--primary-color);
+   151	            color: white;
+   152	        }
+   153	        
+   154	        .links {
+   155	            text-align: center;
+   156	            margin-top: 2rem;
+   157	        }
+   158	        
+   159	        .footer {
+   160	            text-align: center;
+   161	            padding: 2rem;
+   162	            color: var(--text-light);
+   163	            margin-top: 3rem;
+   164	        }
+   165	    </style>
+   166	</head>
+   167	<body>
+   168	    <div class="header">
+   169	        <h1>
+   170	            <i class="fas fa-mobile-alt"></i>
+   171	            SmartMeter Mobile App
+   172	        </h1>
+   173	        <p>CEM6シリーズ 誤結線検出モバイルアプリ - デモページ</p>
+   174	    </div>
+   175	
+   176	    <div class="container">
+   177	        <div class="success-message">
+   178	            <h2><i class="fas fa-check-circle"></i> CSS読み込み成功！</h2>
+   179	            <p>このページが赤色（#aa0000）を基調としたデザインで表示されていれば、CSSが正しく読み込まれています。</p>
+   180	        </div>
+   181	
+   182	        <div class="feature-box">
+   183	            <h3><i class="fas fa-star"></i> 主要機能</h3>
+   184	            <ul>
+   185	                <li>メーター情報取得（IR01/IR02/IR06対応）</li>
+   186	                <li>誤結線判定（42パターン自動検出）</li>
+   187	                <li>計測試験（自動・手動モード）</li>
+   188	                <li>Excelエクスポート（3種類のフォーマット）</li>
+   189	            </ul>
+   190	        </div>
+   191	
+   192	        <div class="feature-box">
+   193	            <h3><i class="fas fa-cog"></i> 技術スタック</h3>
+   194	            <ul>
+   195	                <li>React Native 0.73.2</li>
+   196	                <li>TypeScript 5.3.3</li>
+   197	                <li>Bluetooth SPP通信</li>
+   198	                <li>SheetJS (Excel処理)</li>
+   199	            </ul>
+   200	        </div>
+   201	
+   202	        <div class="feature-box">
+   203	            <h3><i class="fas fa-info-circle"></i> プロジェクト情報</h3>
+   204	            <ul>
+   205	                <li>Version: 1.0.0 (Phase 1: Android版)</li>
+   206	                <li>開発: 大崎電気工業株式会社 インキュベーション室</li>
+   207	                <li>プロダクトマネージャー: 梅澤優一</li>
+   208	                <li>総コード行数: 約26,000行</li>
+   209	            </ul>
+   210	        </div>
+   211	
+   212	        <div class="links">
+   213	            <a href="index.html" class="btn">
+   214	                <i class="fas fa-home"></i> メインページへ
+   215	            </a>
+   216	            <a href="https://github.com/incubation-dev/SmartMeterMobileApp" class="btn btn-secondary" target="_blank">
+   217	                <i class="fab fa-github"></i> GitHubリポジトリ
+   218	            </a>
+   219	        </div>
+   220	    </div>
+   221	
+   222	    <div class="footer">
+   223	        <p>&copy; 2025 大崎電気工業株式会社 All rights reserved.</p>
+   224	        <p>このアプリケーションは社内使用を目的としています。</p>
+   225	    </div>
+   226	
+   227	    <script>
+   228	        console.log('✅ SmartMeter Mobile App デモページが正常に読み込まれました');
+   229	        console.log('🎨 Primary Color: #aa0000');
+   230	        console.log('📱 React Native 0.73.2 + TypeScript 5.3.3');
+   231	    </script>
+   232	</body>
+   233	</html>
+   234	
