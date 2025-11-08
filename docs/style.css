@@ -1,0 +1,771 @@
+     1	/* ========================================
+     2	   Variables & Reset
+     3	   ======================================== */
+     4	:root {
+     5	    --primary-color: #aa0000;
+     6	    --primary-dark: #880000;
+     7	    --primary-light: #cc0000;
+     8	    --secondary-color: #333333;
+     9	    --text-color: #333333;
+    10	    --text-light: #666666;
+    11	    --bg-color: #ffffff;
+    12	    --bg-light: #f8f9fa;
+    13	    --border-color: #e0e0e0;
+    14	    --success-color: #28a745;
+    15	    --warning-color: #ffc107;
+    16	    --info-color: #17a2b8;
+    17	    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    18	    --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.15);
+    19	}
+    20	
+    21	* {
+    22	    margin: 0;
+    23	    padding: 0;
+    24	    box-sizing: border-box;
+    25	}
+    26	
+    27	body {
+    28	    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    29	    line-height: 1.6;
+    30	    color: var(--text-color);
+    31	    background-color: var(--bg-color);
+    32	}
+    33	
+    34	.container {
+    35	    max-width: 1200px;
+    36	    margin: 0 auto;
+    37	    padding: 0 20px;
+    38	}
+    39	
+    40	/* ========================================
+    41	   Typography
+    42	   ======================================== */
+    43	h1, h2, h3, h4, h5, h6 {
+    44	    line-height: 1.3;
+    45	    font-weight: 600;
+    46	}
+    47	
+    48	.section-title {
+    49	    font-size: 2.5rem;
+    50	    text-align: center;
+    51	    margin-bottom: 3rem;
+    52	    color: var(--primary-color);
+    53	    position: relative;
+    54	    padding-bottom: 1rem;
+    55	}
+    56	
+    57	.section-title::after {
+    58	    content: '';
+    59	    position: absolute;
+    60	    bottom: 0;
+    61	    left: 50%;
+    62	    transform: translateX(-50%);
+    63	    width: 60px;
+    64	    height: 4px;
+    65	    background: var(--primary-color);
+    66	}
+    67	
+    68	/* ========================================
+    69	   Header
+    70	   ======================================== */
+    71	.header {
+    72	    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    73	    color: white;
+    74	    padding: 1.5rem 0;
+    75	    box-shadow: var(--shadow);
+    76	}
+    77	
+    78	.header-content {
+    79	    text-align: center;
+    80	}
+    81	
+    82	.logo {
+    83	    font-size: 2rem;
+    84	    margin-bottom: 0.5rem;
+    85	    display: flex;
+    86	    align-items: center;
+    87	    justify-content: center;
+    88	    gap: 0.5rem;
+    89	}
+    90	
+    91	.logo i {
+    92	    font-size: 2.5rem;
+    93	}
+    94	
+    95	.subtitle {
+    96	    font-size: 1.1rem;
+    97	    opacity: 0.9;
+    98	}
+    99	
+   100	/* ========================================
+   101	   Hero Section
+   102	   ======================================== */
+   103	.hero {
+   104	    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+   105	    padding: 5rem 0;
+   106	    text-align: center;
+   107	}
+   108	
+   109	.hero-title {
+   110	    font-size: 3rem;
+   111	    color: var(--primary-color);
+   112	    margin-bottom: 1.5rem;
+   113	    line-height: 1.2;
+   114	}
+   115	
+   116	.hero-description {
+   117	    font-size: 1.2rem;
+   118	    color: var(--text-light);
+   119	    margin-bottom: 2rem;
+   120	    max-width: 800px;
+   121	    margin-left: auto;
+   122	    margin-right: auto;
+   123	}
+   124	
+   125	.hero-buttons {
+   126	    display: flex;
+   127	    gap: 1rem;
+   128	    justify-content: center;
+   129	    flex-wrap: wrap;
+   130	    margin-bottom: 2rem;
+   131	}
+   132	
+   133	.version-info {
+   134	    display: flex;
+   135	    gap: 1rem;
+   136	    justify-content: center;
+   137	    flex-wrap: wrap;
+   138	}
+   139	
+   140	/* ========================================
+   141	   Buttons & Badges
+   142	   ======================================== */
+   143	.btn {
+   144	    display: inline-flex;
+   145	    align-items: center;
+   146	    gap: 0.5rem;
+   147	    padding: 1rem 2rem;
+   148	    border-radius: 8px;
+   149	    text-decoration: none;
+   150	    font-weight: 600;
+   151	    transition: all 0.3s ease;
+   152	    border: none;
+   153	    cursor: pointer;
+   154	    font-size: 1rem;
+   155	}
+   156	
+   157	.btn-primary {
+   158	    background: var(--primary-color);
+   159	    color: white;
+   160	}
+   161	
+   162	.btn-primary:hover {
+   163	    background: var(--primary-dark);
+   164	    transform: translateY(-2px);
+   165	    box-shadow: var(--shadow-lg);
+   166	}
+   167	
+   168	.btn-secondary {
+   169	    background: white;
+   170	    color: var(--primary-color);
+   171	    border: 2px solid var(--primary-color);
+   172	}
+   173	
+   174	.btn-secondary:hover {
+   175	    background: var(--primary-color);
+   176	    color: white;
+   177	}
+   178	
+   179	.btn-download {
+   180	    background: var(--success-color);
+   181	    color: white;
+   182	    width: 100%;
+   183	    justify-content: center;
+   184	    font-size: 1.1rem;
+   185	    padding: 1.2rem 2rem;
+   186	}
+   187	
+   188	.btn-download:hover {
+   189	    background: #218838;
+   190	    transform: translateY(-2px);
+   191	    box-shadow: var(--shadow-lg);
+   192	}
+   193	
+   194	.btn-disabled {
+   195	    background: #6c757d;
+   196	    cursor: not-allowed;
+   197	}
+   198	
+   199	.btn-disabled:hover {
+   200	    background: #6c757d;
+   201	    transform: none;
+   202	}
+   203	
+   204	.badge {
+   205	    display: inline-block;
+   206	    padding: 0.5rem 1rem;
+   207	    background: var(--border-color);
+   208	    color: var(--text-color);
+   209	    border-radius: 20px;
+   210	    font-size: 0.9rem;
+   211	    font-weight: 500;
+   212	}
+   213	
+   214	.badge-success {
+   215	    background: var(--success-color);
+   216	    color: white;
+   217	}
+   218	
+   219	/* ========================================
+   220	   Features Section
+   221	   ======================================== */
+   222	.features {
+   223	    padding: 5rem 0;
+   224	    background: var(--bg-color);
+   225	}
+   226	
+   227	.features-grid {
+   228	    display: grid;
+   229	    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+   230	    gap: 2rem;
+   231	}
+   232	
+   233	.feature-card {
+   234	    background: white;
+   235	    padding: 2rem;
+   236	    border-radius: 12px;
+   237	    box-shadow: var(--shadow);
+   238	    transition: all 0.3s ease;
+   239	}
+   240	
+   241	.feature-card:hover {
+   242	    transform: translateY(-5px);
+   243	    box-shadow: var(--shadow-lg);
+   244	}
+   245	
+   246	.feature-icon {
+   247	    width: 70px;
+   248	    height: 70px;
+   249	    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+   250	    color: white;
+   251	    border-radius: 50%;
+   252	    display: flex;
+   253	    align-items: center;
+   254	    justify-content: center;
+   255	    font-size: 2rem;
+   256	    margin-bottom: 1.5rem;
+   257	}
+   258	
+   259	.feature-card h3 {
+   260	    font-size: 1.5rem;
+   261	    margin-bottom: 1rem;
+   262	    color: var(--primary-color);
+   263	}
+   264	
+   265	.feature-card p {
+   266	    color: var(--text-light);
+   267	    margin-bottom: 1rem;
+   268	}
+   269	
+   270	.feature-list {
+   271	    list-style: none;
+   272	    padding-left: 0;
+   273	}
+   274	
+   275	.feature-list li {
+   276	    padding: 0.5rem 0;
+   277	    padding-left: 1.5rem;
+   278	    position: relative;
+   279	    color: var(--text-color);
+   280	}
+   281	
+   282	.feature-list li::before {
+   283	    content: '✓';
+   284	    position: absolute;
+   285	    left: 0;
+   286	    color: var(--primary-color);
+   287	    font-weight: bold;
+   288	}
+   289	
+   290	/* ========================================
+   291	   Tech Stack Section
+   292	   ======================================== */
+   293	.tech-stack {
+   294	    padding: 5rem 0;
+   295	    background: var(--bg-light);
+   296	}
+   297	
+   298	.tech-grid {
+   299	    display: grid;
+   300	    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   301	    gap: 2rem;
+   302	}
+   303	
+   304	.tech-item {
+   305	    background: white;
+   306	    padding: 2rem;
+   307	    border-radius: 12px;
+   308	    text-align: center;
+   309	    box-shadow: var(--shadow);
+   310	    transition: all 0.3s ease;
+   311	}
+   312	
+   313	.tech-item:hover {
+   314	    transform: translateY(-5px);
+   315	    box-shadow: var(--shadow-lg);
+   316	}
+   317	
+   318	.tech-item i {
+   319	    font-size: 3rem;
+   320	    color: var(--primary-color);
+   321	    margin-bottom: 1rem;
+   322	    display: block;
+   323	}
+   324	
+   325	.tech-item span {
+   326	    font-weight: 600;
+   327	    color: var(--text-color);
+   328	}
+   329	
+   330	/* ========================================
+   331	   Screenshots Section
+   332	   ======================================== */
+   333	.screenshots {
+   334	    padding: 5rem 0;
+   335	    background: var(--bg-color);
+   336	}
+   337	
+   338	.screenshots-grid {
+   339	    display: grid;
+   340	    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   341	    gap: 2rem;
+   342	    margin-bottom: 2rem;
+   343	}
+   344	
+   345	.screenshot-item {
+   346	    text-align: center;
+   347	}
+   348	
+   349	.screenshot-placeholder {
+   350	    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+   351	    border: 2px dashed var(--border-color);
+   352	    border-radius: 12px;
+   353	    padding: 3rem 1rem;
+   354	    margin-bottom: 1rem;
+   355	    transition: all 0.3s ease;
+   356	}
+   357	
+   358	.screenshot-placeholder:hover {
+   359	    border-color: var(--primary-color);
+   360	    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+   361	}
+   362	
+   363	.screenshot-placeholder i {
+   364	    font-size: 4rem;
+   365	    color: var(--primary-color);
+   366	    margin-bottom: 1rem;
+   367	    display: block;
+   368	}
+   369	
+   370	.screenshot-placeholder p {
+   371	    font-weight: 600;
+   372	    color: var(--text-color);
+   373	}
+   374	
+   375	.screenshot-caption {
+   376	    color: var(--text-light);
+   377	    font-size: 0.9rem;
+   378	}
+   379	
+   380	.screenshots-note {
+   381	    text-align: center;
+   382	    color: var(--text-light);
+   383	    font-style: italic;
+   384	    margin-top: 2rem;
+   385	}
+   386	
+   387	/* ========================================
+   388	   Requirements Section
+   389	   ======================================== */
+   390	.requirements {
+   391	    padding: 5rem 0;
+   392	    background: var(--bg-light);
+   393	}
+   394	
+   395	.requirements-grid {
+   396	    display: grid;
+   397	    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   398	    gap: 2rem;
+   399	}
+   400	
+   401	.requirement-card {
+   402	    background: white;
+   403	    padding: 2rem;
+   404	    border-radius: 12px;
+   405	    box-shadow: var(--shadow);
+   406	}
+   407	
+   408	.requirement-card h3 {
+   409	    color: var(--primary-color);
+   410	    margin-bottom: 1.5rem;
+   411	    font-size: 1.3rem;
+   412	    display: flex;
+   413	    align-items: center;
+   414	    gap: 0.5rem;
+   415	}
+   416	
+   417	.requirement-card h3 i {
+   418	    font-size: 1.5rem;
+   419	}
+   420	
+   421	.requirement-card ul {
+   422	    list-style: none;
+   423	    padding-left: 0;
+   424	}
+   425	
+   426	.requirement-card li {
+   427	    padding: 0.5rem 0;
+   428	    padding-left: 1.5rem;
+   429	    position: relative;
+   430	    color: var(--text-color);
+   431	}
+   432	
+   433	.requirement-card li::before {
+   434	    content: '•';
+   435	    position: absolute;
+   436	    left: 0;
+   437	    color: var(--primary-color);
+   438	    font-weight: bold;
+   439	    font-size: 1.2rem;
+   440	}
+   441	
+   442	/* ========================================
+   443	   Download Section
+   444	   ======================================== */
+   445	.download {
+   446	    padding: 5rem 0;
+   447	    background: var(--bg-color);
+   448	}
+   449	
+   450	.download-content {
+   451	    display: grid;
+   452	    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+   453	    gap: 2rem;
+   454	}
+   455	
+   456	.download-card {
+   457	    background: white;
+   458	    padding: 2.5rem;
+   459	    border-radius: 12px;
+   460	    box-shadow: var(--shadow-lg);
+   461	    border: 2px solid var(--border-color);
+   462	    transition: all 0.3s ease;
+   463	}
+   464	
+   465	.download-card:hover {
+   466	    border-color: var(--primary-color);
+   467	    transform: translateY(-5px);
+   468	}
+   469	
+   470	.download-card h3 {
+   471	    color: var(--primary-color);
+   472	    margin-bottom: 1rem;
+   473	    font-size: 1.5rem;
+   474	}
+   475	
+   476	.download-description {
+   477	    color: var(--text-light);
+   478	    margin-bottom: 1.5rem;
+   479	}
+   480	
+   481	.download-info {
+   482	    display: flex;
+   483	    gap: 1rem;
+   484	    flex-wrap: wrap;
+   485	    margin-bottom: 2rem;
+   486	    padding: 1rem;
+   487	    background: var(--bg-light);
+   488	    border-radius: 8px;
+   489	}
+   490	
+   491	.info-item {
+   492	    display: flex;
+   493	    align-items: center;
+   494	    gap: 0.3rem;
+   495	    color: var(--text-color);
+   496	    font-size: 0.9rem;
+   497	}
+   498	
+   499	.info-item i {
+   500	    color: var(--primary-color);
+   501	}
+   502	
+   503	.download-note {
+   504	    margin-top: 1rem;
+   505	    font-size: 0.85rem;
+   506	    color: var(--text-light);
+   507	    font-style: italic;
+   508	    text-align: center;
+   509	}
+   510	
+   511	/* ========================================
+   512	   Installation Section
+   513	   ======================================== */
+   514	.installation {
+   515	    padding: 5rem 0;
+   516	    background: var(--bg-light);
+   517	}
+   518	
+   519	.steps {
+   520	    max-width: 800px;
+   521	    margin: 0 auto;
+   522	}
+   523	
+   524	.step {
+   525	    display: flex;
+   526	    gap: 2rem;
+   527	    margin-bottom: 3rem;
+   528	    align-items: flex-start;
+   529	}
+   530	
+   531	.step-number {
+   532	    flex-shrink: 0;
+   533	    width: 60px;
+   534	    height: 60px;
+   535	    background: var(--primary-color);
+   536	    color: white;
+   537	    border-radius: 50%;
+   538	    display: flex;
+   539	    align-items: center;
+   540	    justify-content: center;
+   541	    font-size: 1.5rem;
+   542	    font-weight: bold;
+   543	}
+   544	
+   545	.step-content h3 {
+   546	    color: var(--primary-color);
+   547	    margin-bottom: 0.5rem;
+   548	}
+   549	
+   550	.step-content p {
+   551	    color: var(--text-light);
+   552	}
+   553	
+   554	/* ========================================
+   555	   Project Info Section
+   556	   ======================================== */
+   557	.project-info {
+   558	    padding: 5rem 0;
+   559	    background: var(--bg-color);
+   560	}
+   561	
+   562	.info-grid {
+   563	    display: grid;
+   564	    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   565	    gap: 2rem;
+   566	}
+   567	
+   568	.info-card {
+   569	    background: white;
+   570	    padding: 2rem;
+   571	    border-radius: 12px;
+   572	    box-shadow: var(--shadow);
+   573	}
+   574	
+   575	.info-card h3 {
+   576	    color: var(--primary-color);
+   577	    margin-bottom: 1.5rem;
+   578	    font-size: 1.3rem;
+   579	}
+   580	
+   581	.progress-item {
+   582	    margin-bottom: 1.5rem;
+   583	}
+   584	
+   585	.progress-item span:first-child {
+   586	    display: block;
+   587	    margin-bottom: 0.5rem;
+   588	    font-weight: 600;
+   589	    color: var(--text-color);
+   590	}
+   591	
+   592	.progress-bar {
+   593	    width: 100%;
+   594	    height: 10px;
+   595	    background: var(--border-color);
+   596	    border-radius: 5px;
+   597	    overflow: hidden;
+   598	    margin-bottom: 0.5rem;
+   599	}
+   600	
+   601	.progress-fill {
+   602	    height: 100%;
+   603	    background: var(--primary-color);
+   604	    transition: width 0.3s ease;
+   605	}
+   606	
+   607	.progress-label {
+   608	    font-size: 0.85rem;
+   609	    color: var(--text-light);
+   610	}
+   611	
+   612	.stats-list, .resources-list {
+   613	    list-style: none;
+   614	    padding-left: 0;
+   615	}
+   616	
+   617	.stats-list li, .resources-list li {
+   618	    padding: 0.75rem 0;
+   619	    border-bottom: 1px solid var(--border-color);
+   620	    color: var(--text-color);
+   621	}
+   622	
+   623	.stats-list li:last-child, .resources-list li:last-child {
+   624	    border-bottom: none;
+   625	}
+   626	
+   627	.stats-list strong {
+   628	    color: var(--primary-color);
+   629	}
+   630	
+   631	.resources-list a {
+   632	    color: var(--primary-color);
+   633	    text-decoration: none;
+   634	    display: flex;
+   635	    align-items: center;
+   636	    gap: 0.5rem;
+   637	    transition: all 0.3s ease;
+   638	}
+   639	
+   640	.resources-list a:hover {
+   641	    color: var(--primary-dark);
+   642	    padding-left: 0.5rem;
+   643	}
+   644	
+   645	/* ========================================
+   646	   Footer
+   647	   ======================================== */
+   648	.footer {
+   649	    background: var(--secondary-color);
+   650	    color: white;
+   651	    padding: 3rem 0 1rem;
+   652	}
+   653	
+   654	.footer-content {
+   655	    display: grid;
+   656	    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   657	    gap: 2rem;
+   658	    margin-bottom: 2rem;
+   659	}
+   660	
+   661	.footer-section h3 {
+   662	    margin-bottom: 1rem;
+   663	    color: var(--primary-light);
+   664	}
+   665	
+   666	.footer-section p {
+   667	    margin-bottom: 0.5rem;
+   668	    opacity: 0.8;
+   669	}
+   670	
+   671	.version {
+   672	    color: var(--primary-light);
+   673	    font-weight: 600;
+   674	}
+   675	
+   676	.footer-bottom {
+   677	    border-top: 1px solid rgba(255, 255, 255, 0.1);
+   678	    padding-top: 1.5rem;
+   679	    text-align: center;
+   680	    font-size: 0.9rem;
+   681	    opacity: 0.7;
+   682	}
+   683	
+   684	/* ========================================
+   685	   Responsive Design
+   686	   ======================================== */
+   687	@media (max-width: 768px) {
+   688	    .section-title {
+   689	        font-size: 2rem;
+   690	    }
+   691	
+   692	    .hero-title {
+   693	        font-size: 2rem;
+   694	    }
+   695	
+   696	    .hero-description {
+   697	        font-size: 1rem;
+   698	    }
+   699	
+   700	    .hero-buttons {
+   701	        flex-direction: column;
+   702	        align-items: stretch;
+   703	    }
+   704	
+   705	    .features-grid,
+   706	    .tech-grid,
+   707	    .requirements-grid,
+   708	    .download-content,
+   709	    .info-grid {
+   710	        grid-template-columns: 1fr;
+   711	    }
+   712	
+   713	    .step {
+   714	        flex-direction: column;
+   715	        gap: 1rem;
+   716	    }
+   717	
+   718	    .screenshots-grid {
+   719	        grid-template-columns: 1fr;
+   720	    }
+   721	}
+   722	
+   723	@media (max-width: 480px) {
+   724	    .logo {
+   725	        font-size: 1.5rem;
+   726	    }
+   727	
+   728	    .subtitle {
+   729	        font-size: 0.9rem;
+   730	    }
+   731	
+   732	    .hero {
+   733	        padding: 3rem 0;
+   734	    }
+   735	
+   736	    .btn {
+   737	        padding: 0.75rem 1.5rem;
+   738	        font-size: 0.9rem;
+   739	    }
+   740	}
+   741	
+   742	/* ========================================
+   743	   Animations
+   744	   ======================================== */
+   745	@keyframes fadeIn {
+   746	    from {
+   747	        opacity: 0;
+   748	        transform: translateY(20px);
+   749	    }
+   750	    to {
+   751	        opacity: 1;
+   752	        transform: translateY(0);
+   753	    }
+   754	}
+   755	
+   756	.feature-card,
+   757	.tech-item,
+   758	.screenshot-item,
+   759	.requirement-card,
+   760	.download-card,
+   761	.info-card {
+   762	    animation: fadeIn 0.6s ease-out;
+   763	}
+   764	
+   765	/* ========================================
+   766	   Smooth Scrolling
+   767	   ======================================== */
+   768	html {
+   769	    scroll-behavior: smooth;
+   770	}
+   771	
