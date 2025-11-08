@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CEM6誤結線検出モバイルアプリ - 大崎電気工業株式会社">
+    <title>SmartMeter Mobile App - CEM6誤結線検出アプリ</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">
+                    <i class="fas fa-mobile-alt"></i>
+                    SmartMeter Mobile App
+                </h1>
+                <p class="subtitle">CEM6シリーズ 誤結線検出モバイルアプリ</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- メインビジュアル -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">スマートメーターの<br>誤結線検出を<br>モバイルで</h2>
+                <p class="hero-description">
+                    Bluetooth接続でCEM6シリーズ電力メーターの情報取得、<br>
+                    42パターンの誤結線判定、計測試験をAndroid端末で実現
+                </p>
+                <div class="hero-buttons">
+                    <a href="#download" class="btn btn-primary">
+                        <i class="fas fa-download"></i> APKをダウンロード
+                    </a>
+                    <a href="#features" class="btn btn-secondary">
+                        <i class="fas fa-info-circle"></i> 機能紹介
+                    </a>
+                </div>
+                <div class="version-info">
+                    <span class="badge">Version 1.0.0</span>
+                    <span class="badge">Phase 1: Android版</span>
+                    <span class="badge badge-success">実装完了</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要機能 -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">主要機能</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h3>メーター情報取得</h3>
+                    <p>Bluetooth経由でCEM6メーターの基本情報、計測値、瞬時値を取得。IR01/IR02/IR06テレグラムに対応。</p>
+                    <ul class="feature-list">
+                        <li>メーターID、製造番号</li>
+                        <li>正方向/逆方向有効電力量</li>
+                        <li>瞬時電力・電流</li>
+                        <li>計測日時履歴</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>誤結線判定</h3>
+                    <p>42パターンの異常検知アルゴリズムで結線状態を自動判定。IR91テレグラムで現在値を取得。</p>
+                    <ul class="feature-list">
+                        <li>電圧系誤結線（1-21番）</li>
+                        <li>電流系誤結線（22-35番）</li>
+                        <li>混合誤結線（36-42番）</li>
+                        <li>推奨対処法の表示</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>計測試験</h3>
+                    <p>自動・手動モードで計測値を時系列記録。繰り越し対応の差分計算機能付き。</p>
+                    <ul class="feature-list">
+                        <li>タイマー自動測定（10秒-60分）</li>
+                        <li>手動測定モード</li>
+                        <li>最大3回までの記録</li>
+                        <li>経過時間・差分表示</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-excel"></i>
+                    </div>
+                    <h3>Excelエクスポート</h3>
+                    <p>3種類のフォーマットでデータをExcel出力。既存ファイルへの追記や重複チェックに対応。</p>
+                    <ul class="feature-list">
+                        <li>Format A（きんでん社用）</li>
+                        <li>Format B（大崎標準）</li>
+                        <li>Format C（スパイダープラス連携）</li>
+                        <li>追加フィールド入力対応</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技術スタック -->
+    <section class="tech-stack">
+        <div class="container">
+            <h2 class="section-title">技術スタック</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-react"></i>
+                    <span>React Native 0.73</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-js"></i>
+                    <span>TypeScript 5.3</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-bluetooth-b"></i>
+                    <span>Bluetooth SPP</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-file-excel"></i>
+                    <span>SheetJS (xlsx)</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-android"></i>
+                    <span>Android SDK 33</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-code"></i>
+                    <span>26,000行のコード</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- スクリーンショット -->
+    <section class="screenshots">
+        <div class="container">
+            <h2 class="section-title">アプリ画面</h2>
+            <div class="screenshots-grid">
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-home"></i>
+                        <p>ホーム画面</p>
+                    </div>
+                    <p class="screenshot-caption">3つの主要機能へのアクセス</p>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-info-circle"></i>
+                        <p>メーター情報取得</p>
+                    </div>
+                    <p class="screenshot-caption">20項目以上のデータを表示</p>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>誤結線判定</p>
+                    </div>
+                    <p class="screenshot-caption">42パターンの自動検出</p>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-clock"></i>
+                        <p>計測試験</p>
+                    </div>
+                    <p class="screenshot-caption">自動・手動測定モード</p>
+                </div>
+            </div>
+            <p class="screenshots-note">
+                <i class="fas fa-info-circle"></i> 
+                スクリーンショットは実機テスト後に追加予定
+            </p>
+        </div>
+    </section>
+
+    <!-- システム要件 -->
+    <section class="requirements">
+        <div class="container">
+            <h2 class="section-title">システム要件</h2>
+            <div class="requirements-grid">
+                <div class="requirement-card">
+                    <h3><i class="fab fa-android"></i> Android端末</h3>
+                    <ul>
+                        <li>Android 5.0 (Lollipop) 以上</li>
+                        <li>推奨: Android 13.0以上</li>
+                        <li>Bluetooth 2.0以上（SPP対応）</li>
+                        <li>ストレージ: 100MB以上の空き容量</li>
+                    </ul>
+                </div>
+                <div class="requirement-card">
+                    <h3><i class="fas fa-plug"></i> 必要なハードウェア</h3>
+                    <ul>
+                        <li>TP-BT Bluetooth SPPアダプター</li>
+                        <li>CEM6シリーズ電力メーター</li>
+                        <li>IR01/IR02/IR06/IR91対応</li>
+                    </ul>
+                </div>
+                <div class="requirement-card">
+                    <h3><i class="fas fa-shield-alt"></i> 必要な権限</h3>
+                    <ul>
+                        <li>Bluetooth接続・管理</li>
+                        <li>位置情報（Bluetoothスキャン用）</li>
+                        <li>ストレージ（Excelファイル保存）</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ダウンロード -->
+    <section id="download" class="download">
+        <div class="container">
+            <h2 class="section-title">ダウンロード</h2>
+            <div class="download-content">
+                <div class="download-card">
+                    <h3>Debug APK（社内確認用）</h3>
+                    <p class="download-description">
+                        開発・社内確認用のAPKファイルです。署名なしでインストール可能。
+                    </p>
+                    <div class="download-info">
+                        <span class="info-item"><i class="fas fa-tag"></i> Version 1.0.0</span>
+                        <span class="info-item"><i class="fas fa-calendar"></i> 2025-01-07</span>
+                        <span class="info-item"><i class="fas fa-database"></i> 約35MB</span>
+                    </div>
+                    <a href="https://github.com/incubation-dev/SmartMeterMobileApp/releases/download/v1.0.0/app-debug.apk" class="btn btn-download">
+                        <i class="fas fa-download"></i> Debug APK をダウンロード
+                    </a>
+                    <p class="download-note">
+                        <i class="fas fa-info-circle"></i> 
+                        GitHub Releasesにアップロード後、このリンクが有効になります
+                    </p>
+                </div>
+
+                <div class="download-card">
+                    <h3>Release APK（本番配布用）</h3>
+                    <p class="download-description">
+                        署名付きの本番配布用APKファイルです。コード最適化済み。
+                    </p>
+                    <div class="download-info">
+                        <span class="info-item"><i class="fas fa-tag"></i> Version 1.0.0</span>
+                        <span class="info-item"><i class="fas fa-calendar"></i> 実機テスト後</span>
+                        <span class="info-item"><i class="fas fa-database"></i> 約20MB</span>
+                    </div>
+                    <a href="#" class="btn btn-download btn-disabled">
+                        <i class="fas fa-clock"></i> 実機テスト完了後に公開
+                    </a>
+                    <p class="download-note">
+                        <i class="fas fa-info-circle"></i> 
+                        Android実機テスト完了後（3-5日）に公開予定
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- インストール手順 -->
+    <section class="installation">
+        <div class="container">
+            <h2 class="section-title">インストール手順</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>APKファイルをダウンロード</h3>
+                        <p>上記のダウンロードリンクからAPKファイルをAndroid端末にダウンロードします。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>提供元不明のアプリを許可</h3>
+                        <p>設定 → セキュリティ → 提供元不明のアプリ → ブラウザまたはファイルマネージャーを許可</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>APKファイルをタップしてインストール</h3>
+                        <p>ダウンロードフォルダからAPKファイルを選択し、「インストール」をタップします。</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>権限を許可</h3>
+                        <p>アプリ起動時にBluetooth、位置情報、ストレージの権限を全て許可してください。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- プロジェクト情報 -->
+    <section class="project-info">
+        <div class="container">
+            <h2 class="section-title">プロジェクト情報</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>開発状況</h3>
+                    <div class="progress-item">
+                        <span>Phase 1 (Android版)</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                        <span class="progress-label">100% 完了</span>
+                    </div>
+                    <div class="progress-item">
+                        <span>実機テスト</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-label">予定: 3-5日</span>
+                    </div>
+                    <div class="progress-item">
+                        <span>Phase 2 (iOS版)</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-label">予定: +2ヶ月</span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3>統計情報</h3>
+                    <ul class="stats-list">
+                        <li><i class="fas fa-file-code"></i> 総ファイル数: <strong>52</strong></li>
+                        <li><i class="fas fa-code"></i> 総コード行数: <strong>約26,000行</strong></li>
+                        <li><i class="fas fa-check-circle"></i> 実装完了率: <strong>100%</strong></li>
+                        <li><i class="fas fa-vial"></i> テストケース: <strong>70項目</strong></li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>リソース</h3>
+                    <ul class="resources-list">
+                        <li><a href="https://github.com/incubation-dev/SmartMeterMobileApp"><i class="fab fa-github"></i> GitHubリポジトリ</a></li>
+                        <li><a href="https://github.com/incubation-dev/SmartMeterMobileApp/releases"><i class="fas fa-tag"></i> リリースノート</a></li>
+                        <li><a href="RELEASE_NOTES.html"><i class="fas fa-file-alt"></i> 詳細な機能説明</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SmartMeter Mobile App</h3>
+                    <p>CEM6シリーズ誤結線検出モバイルアプリ</p>
+                    <p class="version">Version 1.0.0 (Phase 1: Android版)</p>
+                </div>
+                <div class="footer-section">
+                    <h3>開発</h3>
+                    <p>大崎電気工業株式会社</p>
+                    <p>インキュベーション室</p>
+                    <p>プロダクトマネージャー: 梅澤優一</p>
+                </div>
+                <div class="footer-section">
+                    <h3>お問い合わせ</h3>
+                    <p>社内確認用プロジェクト</p>
+                    <p>フィードバックはインキュベーション室まで</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 大崎電気工業株式会社 All rights reserved.</p>
+                <p>このアプリケーションは社内使用を目的としています。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
